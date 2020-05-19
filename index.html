@@ -3,10 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script></script>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/55a19b2523.js" crossorigin="anonymous"></script>
   <title>Rock Paper Scissors | Play against a bot!</title>
 </head>
 <body>
-  
+  <header>
+    <h1>ROCK PAPER SCISSORS</h1>
+    <h2>Can you beat the bot?</h2>
+  </header>
+  <main id="battleground">
+    <div class="score wrapper">
+      <span id="user-wins">0</span>
+      <span id="bot-wins">0</span>
+    </div>
+    <div class="players wrapper">
+      <span class="icon container"><i id="user-icon"></i>YOU</span>
+      <span class="icon container"><i id="bot-icon"></i>BOT</span>
+    </div>
+    <div class="weapon wrapper">
+      <span class="icon container"><i id="rock-icon"></i>ROCK</span>
+      <span class="icon container"><i id="paper-icon"></i>PAPER</span>
+      <span class="icon container"><i id="scissors-icon"></i>SCISSORS</span>
+    </div>
+  </main>
+  <footer>
+    <!--Put credits here and links to your GitHub page etc.-->
+  </footer>
 </body>
 </html>
