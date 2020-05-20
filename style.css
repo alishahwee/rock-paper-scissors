@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
 
+:root {
+  --user-color: rgb(101, 182, 101);
+  --bot-color: rgb(197, 95, 95);
+}
+
 body, html {
   display: block;
   box-sizing: border-box;
@@ -19,14 +24,14 @@ h1 {
   letter-spacing: 5px;
   word-spacing: 15px;
   width: 100%;
-  padding-top: 98px;
+  padding-top: 70px;
   margin: 0;
   text-shadow: 5px 5px #afafaf;
 }
 
 h2 {
   font-style: italic;
-  font-size: 30px;
+  font-size: 20px;
   padding-bottom: 10px;
 }
 
@@ -41,11 +46,12 @@ p {
 
 .wrapper {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .score {
-  justify-content: center;
-  align-items: center;
+  padding-bottom: 30px;
 }
 
 .wins {
@@ -61,18 +67,41 @@ p {
   padding-left: 15px;
 }
 
-.weapon {
+#user-icon {
+  color: var(--user-color);
+}
+
+#bot-icon {
+  color: var(--bot-color);
+}
+
+.description {
+  padding: 0 100px;
+}
+
+.description .container {
+  width: 280px;
+  height: 120px;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  border: 3px solid rgb(161, 161, 161);
+  border-radius: 12px;
 }
 
 .weapon .icon-container {
-  padding: 40px 20px;
+  padding: 15px 20px;
   font-size: 14px;
 }
 
 .weapon i {
   font-size: 20px;
   padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.weapon i:hover {
+  transform: scale(1.3);
 }
 
 .icon-container {
@@ -87,7 +116,6 @@ p {
 i {
   font-size: 30px;
   padding: 15px;
-  cursor: pointer;
 }
 
 .text {
@@ -95,15 +123,23 @@ i {
 }
 
 #reset {
+  padding-top: 15px;
   cursor: pointer;
   font-size: 14px;
 }
 
+#reset:hover {
+  text-decoration: underline;
+}
+
 footer p {
+  padding-top: 80px;
+  margin-bottom: 3px;
   font-size: 12px;
 }
 
 #github {
   padding: 0;
+  padding-bottom: 20px;
   color: black;
 }
