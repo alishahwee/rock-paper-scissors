@@ -63,7 +63,7 @@ function computerPlay() {
 // Returns the winner of the round and updates round number
 function playRound(playerSelection, computerSelection) {
   round++;
-  roundNum.textContent = round;
+  roundNum.textContent = `Round ${round}`;
 
   switch (playerSelection) {
     case 'ROCK':
@@ -159,7 +159,24 @@ function updateColors() {
 
 // Reset the game
 function resetGame() {
-  // TODO
+  userWins = 0;
+  botWins = 0;
+  round = 1;
+
+  roundNum.textContent = `Round ${round}`;
+  userScore.textContent = userWins.toString();
+  botScore.textContent = botWins.toString();
+  battleground.textContent = 'Pick your weapon!';
+  for (weapon in userColorState) {
+    userColorState[weapon] = false;
+  }
+  for (weapon in botColorState) {
+    botColorState[weapon] = false;
+  }
+  for (weapon in tieColorState) {
+    tieColorState[weapon] = false;
+  }
+  updateColors();
 }
 
 // Ends the game
