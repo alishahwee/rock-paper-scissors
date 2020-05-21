@@ -11,6 +11,21 @@ const scissorsIcon = document.getElementById('scissors-icon');
 let userWins = 0;
 let botWins = 0;
 let round = 1;
+let userColorState = {
+    'ROCK': false,
+    'PAPER': false,
+    'SCISSORS': false
+}
+let botColorState = {
+    'ROCK': false,
+    'PAPER': false,
+    'SCISSORS': false
+}
+let tieColorState = {
+    'ROCK': false,
+    'PAPER': false,
+    'SCISSORS': false
+}
 
 // Strings printed during the game
 const userWinText = `You WIN! ${playerSelection} beats ${computerSelection}`;
@@ -27,7 +42,7 @@ function game(playerSelection) {
   let winner = playRound(playerSelection, computerSelection);
 
   updateText(winner, playerSelection, computerSelection);
-  updateColors(playerSelection, computerSelection);
+  updateColorState(playerSelection, computerSelection);
 
   if (round === 5) endGame();
 }
@@ -44,10 +59,10 @@ function computerPlay() {
   return computerSelection;
 }
 
-// Returns the winner of the round
+// Returns the winner of the round and updates round number
 function playRound(playerSelection, computerSelection) {
   round++;
-  // TODO: update round text
+  roundNum.textContent = round;
 
   switch (playerSelection) {
     case 'ROCK':
@@ -86,9 +101,57 @@ function updateText(winner) {
   }
 }
 
-// Update the icon colors
-function updateColors(playerSelection, computerSelection) {
-    // TODO
+// Update the state of colors
+function updateColorState(playerSelection, computerSelection) {
+    if (playerSelection !== computerSelection) {
+        for (weapon in userColorState) {
+            if (weapon === playerSelection) {
+                userColorState[weapon] = true;
+            } else {
+                userColorState[weapon] = false;
+            }
+        }
+        for (weapon in botColorState) {
+            if (weapon === computerSelection) {
+                botColorState[weapon] = true;
+            } else {
+                botColorState[weapon] = false;
+            }
+        }
+        for (weapon in tieColorState) {
+            tieColorState[weapon] = false;
+        }
+    } else {
+        for (weapon in tieColorState) {
+            if (weapon === playerSelection) {
+                tieColorState[weapon] = true;
+            } else {
+                tieColorState[weapon] = false;
+            }
+        }
+        for (weapon in userColorState) {
+            userColorState[weapon] = false;
+        }
+        for (weapon in botColorState) {
+            botColorState[weapon] = false;
+        }
+    }
+}
+
+// Update the colors in the document
+function updateColors() {
+  // Rock-icon color
+  userColorState['ROCK'] ? rockIcon.classList.add('user-color') : rockIcon.classList.remove('user-color');
+  botColorState['ROCK'] ? rockIcon.classList.add('bot-color') : rockIcon.classList.remove('bot-color');
+  tieColorState['ROCK'] ? rockIcon.classList.add('tie-color') : rockIcon.classList.remove('tie-color');
+  // Paper-icon color
+  userColorState['PAPER'] ? paperIcon.classList.add('user-color') : paperIcon.classList.remove('user-color');
+  botColorState['PAPER'] ? paperIcon.classList.add('bot-color') : paperIcon.classList.remove('bot-color');
+  tieColorState['PAPER'] ? paperIcon.classList.add('tie-color') : paperIcon.classList.remove('tie-color');
+  // Scissors-icon color
+  userColorState['SCISSORS'] ? scissorsIcon.classList.add('user-color') : scissorsIcon.classList.remove('user-color');
+  botColorState['SCISSORS'] ? scissorsIcon.classList.add('bot-color') : scissorsIcon.classList.remove('bot-color');
+  tieColorState['SCISSORS'] ? scissorsIcon.classList.add('tie-color') : scissorsIcon.classList.remove('tie-color');
 }
 
 // Reset the game
