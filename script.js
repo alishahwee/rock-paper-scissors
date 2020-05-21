@@ -1,21 +1,25 @@
-/* TODO:
-  - Initialize buttons to event listeners 
-  - Create a function to generate bot response
-  - Set player response variable to appropriate return value
-  - Create a function that accepts player and bot response and returns winner
-  - Create a game function that handles results best out of 5 rounds with an end-game function and reset-game function
-*/
-
-// Initialize variables
+// Initialize global variables
 let userWins = 0;
 let botWins = 0;
 let round = 1;
 
+// Strings printed during the game
+const userWinText = `You WIN! ${playerSelection} beats ${computerSelection}`;
+const botWinText = `You LOSE! ${computerSelection} beats ${playerSelection}`;
+const tieText = "It's a TIE! Try again!";
+const gameOverText = 'GAME OVER. Make a move to play a new round!';
+
 // Play the game
 function game(playerSelection) {
+    if (round === 5) resetGame();
+
     let playerSelection = playerSelection;
     let computerSelection = computerPlay();
     let winner = playRound(playerSelection, computerSelection);
+
+    updateText(winner);
+
+    if (round === 5) endGame();
 }
 
 // Returns computer's response
@@ -32,6 +36,9 @@ function computerPlay() {
 
 // Returns the winner of the round
 function playRound(playerSelection, computerSelection) {
+    round++;
+    // TODO: update round text
+
     switch (playerSelection) {
         case 'ROCK':
             if (computerSelection === 'PAPER') {
@@ -39,42 +46,56 @@ function playRound(playerSelection, computerSelection) {
             } else if (computerSelection === 'SCISSORS') {
                 return 'USER';
             }
-            break;
         case 'PAPER':
             if (computerSelection === 'SCISSORS') {
                 return 'BOT';
             } else if (computerSelection === 'ROCK') {
                 return 'USER';
             }
-            break;
         case 'SCISSORS':
             if (computerSelection === 'ROCK') {
                 return 'BOT';
             } else if (computerSelection === 'PAPER') {
                 return 'USER';
             }
-            break;
         default:
             return 'TIE';
     }
 }
 
-function updateText() {
-    // TODO
+// Update the battleground text
+function updateText(winner) {
+    if (winner === 'USER') {
+        userWins++;
+        // TODO: Change text
+    } else if (winner === 'BOT') {
+        botWins++;
+        // TODO: Change text
+    } else {
+        // TODO: Change text
+    }
 }
 
+// Reset the game 
 function resetGame() {
     // TODO
 }
 
-// Grab document elements
-const rockBtn = document.querySelectorAll(".rock");
-const paperBtn = document.querySelectorAll(".paper");
-const scissorsBtn = document.querySelectorAll(".scissors");
+// Ends the game
+function endGame() {
+    // TODO
+}
+
+// Grab button elements
+const rockBtns = document.querySelectorAll(".rock");
+const paperBtns = document.querySelectorAll(".paper");
+const scissorsBtns = document.querySelectorAll(".scissors");
 const resetBtn = document.getElementById("reset");
 
-// Handle events
-rockBtn.forEach(btn => btn.addEventListener('click', game('ROCK')));
-paperBtn.forEach(btn => btn.addEventListener('click', game('PAPER')));
-scissorsBtn.forEach(btn => btn.addEventListener('click', game('SCISSORS')));
+// Handle button events
+rockBtns.forEach(btn => btn.addEventListener('click', game('ROCK')));
+paperBtns.forEach(btn => btn.addEventListener('click', game('PAPER')));
+scissorsBtns.forEach(btn => btn.addEventListener('click', game('SCISSORS')));
 resetBtn.addEventListener('click', resetGame);
+
+// Grab interactive text elements
