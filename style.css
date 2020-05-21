@@ -5,6 +5,18 @@
   --bot-color: rgb(197, 95, 95);
 }
 
+.user-color {
+  color: var(--user-color);
+}
+
+.bot-color {
+  color: var(--bot-color);
+}
+
+.tie-color {
+  color: rgb(161, 161, 161);
+}
+
 body,
 html {
   display: block;
