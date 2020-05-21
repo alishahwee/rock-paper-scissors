@@ -11,14 +11,11 @@ let userWins = 0;
 let botWins = 0;
 let round = 1;
 
-// Grab document elements and call functions
-const rockBtn = document.querySelectorAll(".rock");
-const paperBtn = document.querySelectorAll(".paper");
-const scissorsBtn = document.querySelectorAll(".scissors");
-const resetBtn = document.getElementById("reset");
-
-function game(e) {
-    // TODO
+// Play the game
+function game(playerSelection) {
+    let playerSelection = playerSelection;
+    let computerSelection = computerPlay();
+    let winner = playRound(playerSelection, computerSelection);
 }
 
 // Returns computer's response
@@ -33,8 +30,33 @@ function computerPlay() {
     return computerSelection;
 }    
 
+// Returns the winner of the round
 function playRound(playerSelection, computerSelection) {
-    // TODO
+    switch (playerSelection) {
+        case 'ROCK':
+            if (computerSelection === 'PAPER') {
+                return 'BOT';
+            } else if (computerSelection === 'SCISSORS') {
+                return 'USER';
+            }
+            break;
+        case 'PAPER':
+            if (computerSelection === 'SCISSORS') {
+                return 'BOT';
+            } else if (computerSelection === 'ROCK') {
+                return 'USER';
+            }
+            break;
+        case 'SCISSORS':
+            if (computerSelection === 'ROCK') {
+                return 'BOT';
+            } else if (computerSelection === 'PAPER') {
+                return 'USER';
+            }
+            break;
+        default:
+            return 'TIE';
+    }
 }
 
 function updateText() {
@@ -44,3 +66,15 @@ function updateText() {
 function resetGame() {
     // TODO
 }
+
+// Grab document elements
+const rockBtn = document.querySelectorAll(".rock");
+const paperBtn = document.querySelectorAll(".paper");
+const scissorsBtn = document.querySelectorAll(".scissors");
+const resetBtn = document.getElementById("reset");
+
+// Handle events
+rockBtn.forEach(btn => btn.addEventListener('click', game('ROCK')));
+paperBtn.forEach(btn => btn.addEventListener('click', game('PAPER')));
+scissorsBtn.forEach(btn => btn.addEventListener('click', game('SCISSORS')));
+resetBtn.addEventListener('click', resetGame);
