@@ -1,64 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="script.js" defer></script>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/55a19b2523.js" crossorigin="anonymous"></script>
-  <title>Rock Paper Scissors | Play against a bot!</title>
-</head>
-<body>
-  <header>
-    <h1>ROCK PAPER SCISSORS</h1>
-    <h2>Can you beat the bot in just FIVE rounds?</h2>
-  </header>
-  <main id="battleground">
-    <p>ROUND 1</p>
-    <div class="score wrapper">
-      <div class="icon-container">
-        <i id="user-icon" class="fas fa-user"></i>
-        <span class="text">YOU</span>
-      </div>
-      <div id="scoreboard">
-        <span class="user wins">0</span>
-        <span class="bot wins">0</span>
-      </div>
-      <div class="icon-container">
-        <i id="bot-icon" class="fas fa-robot"></i>
-        <span class="text">BOT</span>
-      </div>
-    </div>
-    <div class="description wrapper">
-      <div class="container">
-        <p id="result-text">Pick your weapon!</p>
-      </div>
-    </div>
-    <div class="weapon wrapper">
-      <div class="icon-container">
-        <div id="ROCK">
-          <i id="rock-icon" class="fas fa-hand-rock"></i>
-          <span class="text">ROCK</span>
-        </div>  
-      </div>
-      <div class="icon-container">
-        <div id="PAPER">
-          <i id="paper-icon" class="fas fa-hand-paper"></i>
-          <span class="text">PAPER</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/55a19b2523.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Rock Paper Scissors | Play against a bot!</title>
+  </head>
+  <body>
+    <header>
+      <h1>ROCK PAPER SCISSORS</h1>
+      <h2>Can you beat the bot in just FIVE rounds?</h2>
+    </header>
+    <main id="battleground">
+      <p>ROUND 1</p>
+      <div class="score wrapper">
+        <div class="icon-container">
+          <i id="user-icon" class="fas fa-user"></i>
+          <span class="text">YOU</span>
+        </div>
+        <div id="scoreboard">
+          <span class="user wins">0</span>
+          <span class="bot wins">0</span>
+        </div>
+        <div class="icon-container">
+          <i id="bot-icon" class="fas fa-robot"></i>
+          <span class="text">BOT</span>
         </div>
       </div>
-      <div class="icon-container">
-        <div id="SCISSORS">
-          <i id="scissors-icon" class="fas fa-hand-scissors"></i>
-          <span class="text">SCISSORS</span>
+      <div class="description wrapper">
+        <div class="container">
+          <p id="result-text">Pick your weapon!</p>
         </div>
       </div>
-    </div>
-    <p id="reset">RESET ROUND</p>
-  </main>
-  <footer>
-    <p>Find me on...</p>
-    <a href="https://github.com/alishahwee" target="_blank"><i id="github" class="fab fa-github"></i></a>
-  </footer>
-</body>
+      <div class="weapon wrapper">
+        <div class="icon-container">
+          <i id="rock-icon" class="fas fa-hand-rock rock"></i>
+          <span class="text rock">ROCK</span>
+        </div>
+        <div class="icon-container">
+          <i id="paper-icon" class="fas fa-hand-paper paper"></i>
+          <span class="text paper">PAPER</span>
+        </div>
+        <div class="icon-container">
+          <i id="scissors-icon" class="fas fa-hand-scissors scissors"></i>
+          <span class="text scissors">SCISSORS</span>
+        </div>
+      </div>
+      <p id="reset">RESET ROUND</p>
+    </main>
+    <footer>
+      <p>Find me on...</p>
+      <a href="https://github.com/alishahwee" target="_blank"
+        ><i id="github" class="fab fa-github"></i
+      ></a>
+    </footer>
+  </body>
 </html>

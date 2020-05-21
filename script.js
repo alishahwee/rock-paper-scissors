@@ -12,22 +12,25 @@ let botWins = 0;
 let round = 1;
 
 // Grab document elements and call functions
-// TODO
+const rockBtn = document.querySelectorAll(".rock");
+const paperBtn = document.querySelectorAll(".paper");
+const scissorsBtn = document.querySelectorAll(".scissors");
+const resetBtn = document.getElementById("reset");
 
-function game() {
+function game(e) {
     // TODO
 }
 
 // Returns computer's response
 function computerPlay() {
-    let botPlay = 'ROCK';
+    let computerSelection = 'ROCK';
     const n = Math.random();
     if (n <= 1/3) {
-        botPlay = 'PAPER';
+        computerSelection = 'PAPER';
     } else if ((n > 1/3) && (n <= 2/3)) {
-        botPlay = 'SCISSORS';
+        computerSelection = 'SCISSORS';
     }
-    return botPlay;
+    return computerSelection;
 }    
 
 function playRound(playerSelection, computerSelection) {
@@ -35,5 +38,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function updateText() {
+    // TODO
+}
+
+function resetGame() {
     // TODO
 }

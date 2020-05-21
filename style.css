@@ -5,7 +5,8 @@
   --bot-color: rgb(197, 95, 95);
 }
 
-body, html {
+body,
+html {
   display: block;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
