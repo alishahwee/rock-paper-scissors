@@ -31,7 +31,6 @@ let tieColorState = {
 const userWinText = `You WIN! ${playerSelection} beats ${computerSelection}`;
 const botWinText = `You LOSE! ${computerSelection} beats ${playerSelection}`;
 const tieText = "It's a TIE! Try again!";
-const gameOverText = 'GAME OVER. Make a move to play a new round!';
 
 // Play the game
 function game(playerSelection) {
@@ -181,7 +180,11 @@ function resetGame() {
 
 // Ends the game
 function endGame() {
-  // TODO
+  let result;
+  if (userWins > botWins) {
+    result = 'YOU WIN!'
+  } else result = 'YOU LOSE!';
+  battleground.textContent = `GAME OVER. ${result} Make a move to play again!`
 }
 
 // Grab button elements
