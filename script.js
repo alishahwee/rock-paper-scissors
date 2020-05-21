@@ -43,6 +43,7 @@ function game(playerSelection) {
 
   updateText(winner, playerSelection, computerSelection);
   updateColorState(playerSelection, computerSelection);
+  updateColors();
 
   if (round === 5) endGame();
 }
@@ -99,6 +100,8 @@ function updateText(winner) {
   } else {
     battleground.textContent = tieText;
   }
+  userScore.textContent = userWins.toString();
+  botScore.textContent = botWins.toString();
 }
 
 // Update the state of colors
